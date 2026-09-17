@@ -3,7 +3,7 @@
 ###
 A logistic map maps the unit interval to itself:
 
-{X_{n+1}} = {RX_n(1 - X_n)} = {RX_n - RX_n^2}
+${X_{n+1}} = {RX_n(1 - X_n)} = {RX_n - RX_n^2}$
 
 
 
