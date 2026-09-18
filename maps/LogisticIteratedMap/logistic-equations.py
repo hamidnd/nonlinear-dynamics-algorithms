@@ -24,9 +24,11 @@ def iterated_cosine(x0, ntime):
         xnext = math.cos(math.radians(xnext))
     return xnext
 
-def iterated_cosine_trajectory(x0, ntime): import math
+
+def iterated_cosine_trajectory(x0, ntime):
+    import math
     xnext = x0
-    traj=[]
+    traj = []
     for i in range(ntime):
         xnext = math.cos(math.radians(xnext))
         traj.append(xnext)
