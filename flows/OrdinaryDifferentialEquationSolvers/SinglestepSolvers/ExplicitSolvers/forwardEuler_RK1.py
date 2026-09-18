@@ -1,6 +1,7 @@
-import ode_fieldVector
+from ..ode_fieldVector import ode_derivativeof_fieldVector_SHO
 
-def forward_Euler_SHO(ic, timestep, finalTimeStep, estimation_timecomplexity=False):
+
+def forward_Euler_SHO_default(ic, timestep, finalTimeStep, estimation_timecomplexity=False):
     
     # The implementation is for an undamped system like an undamped 2-dimentional Simple harmonic oscillator (SHO)
     # with 2 state variables X and V
@@ -19,7 +20,7 @@ def forward_Euler_SHO(ic, timestep, finalTimeStep, estimation_timecomplexity=Fal
         
         # our nearest guess
         # parameter values are default for SHO
-        (xprime, vprime) = ode_fieldVector.ode_derivativeof_fieldVector_SHO(fv)
+        (xprime, vprime) = ode_derivativeof_fieldVector_SHO(fv)
         
         directionslop = (timestep*xprime, timestep*vprime)
         next_position = (directionslop[0]+fv[0], directionslop[1]+fv[1])
@@ -45,7 +46,7 @@ def forward_Euler_SHO(ic, timestep, finalTimeStep, *sho_args):
         
         # our nearest guess 
         # non-default parameters are taken from caller
-        (xprime,vprime) = ode_fieldVector.ode_derivativeof_fieldVector_SHO(fv, *sho_args) 
+        (xprime,vprime) = ode_derivativeof_fieldVector_SHO(fv, *sho_args) 
         
         directionslop=(timestep*xprime, timestep*vprime)
         next_position=(directionslop[0]+fv[0], directionslop[1]+fv[1])
